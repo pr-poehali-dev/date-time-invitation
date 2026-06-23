@@ -4,35 +4,35 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 350 60% 98%;
+    --foreground: 340 25% 28%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 340 25% 28%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 340 25% 28%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 345 70% 72%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 345 50% 94%;
+    --secondary-foreground: 340 30% 40%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 345 40% 95%;
+    --muted-foreground: 340 15% 55%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 30 80% 90%;
+    --accent-foreground: 340 30% 40%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 345 40% 90%;
+    --input: 345 40% 90%;
+    --ring: 345 70% 72%;
 
-    --radius: 0.5rem;
+    --radius: 1.25rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -97,5 +97,39 @@
 
   body {
     @apply bg-background text-foreground;
+    font-family: "Cormorant Garamond", serif;
+  }
+}
+
+@layer utilities {
+  .text-glow {
+    text-shadow: 0 4px 30px hsl(345 70% 72% / 0.35);
+  }
+  .soft-shadow {
+    box-shadow: 0 20px 60px -15px hsl(345 60% 60% / 0.25);
+  }
+  .romantic-bg {
+    background:
+      radial-gradient(
+        circle at 15% 20%,
+        hsl(345 80% 92% / 0.7),
+        transparent 45%
+      ),
+      radial-gradient(
+        circle at 85% 15%,
+        hsl(30 85% 88% / 0.6),
+        transparent 40%
+      ),
+      radial-gradient(
+        circle at 75% 85%,
+        hsl(280 60% 92% / 0.5),
+        transparent 45%
+      ),
+      radial-gradient(
+        circle at 25% 90%,
+        hsl(345 70% 90% / 0.6),
+        transparent 40%
+      ),
+      hsl(350 60% 98%);
   }
 }
