@@ -88,7 +88,7 @@ const Index = () => {
                 className="mb-4 animate-fade-up font-hand text-3xl text-primary opacity-0"
                 style={{ animationDelay: '0.1s' }}
               >
-                Привет
+                Привет, Юля
               </p>
               <h1
                 className="mb-6 animate-fade-up font-serif text-5xl font-medium leading-tight text-foreground opacity-0 md:text-6xl"
@@ -221,9 +221,9 @@ const Index = () => {
           {step === 3 && (
             <div className="flex animate-scale-in flex-col items-center text-center">
               <span className="mb-6 inline-block animate-heartbeat text-7xl">🤍</span>
-              <p className="mb-3 font-hand text-4xl text-primary">Это свидание!</p>
               <h2 className="mb-8 font-serif text-5xl font-medium leading-tight text-foreground">
-                Я буду считать<br />каждую минуту
+                Я буду ждать<br />этой прогулки<br />
+                <span className="text-glow italic text-primary">и не просплю)</span>
               </h2>
               <div className="w-full rounded-3xl bg-card p-8 soft-shadow">
                 <div className="mb-5 flex items-center justify-center gap-3 font-serif text-2xl text-foreground">
