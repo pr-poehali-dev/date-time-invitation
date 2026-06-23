@@ -88,7 +88,7 @@ const Index = () => {
                 className="mb-4 animate-fade-up font-hand text-3xl text-primary opacity-0"
                 style={{ animationDelay: '0.1s' }}
               >
-                Привет, Юля
+                Привет, киса
               </p>
               <h1
                 className="mb-6 animate-fade-up font-serif text-5xl font-medium leading-tight text-foreground opacity-0 md:text-6xl"
