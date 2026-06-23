@@ -82,7 +82,7 @@ const Index = () => {
           {/* Step 0 — Приглашение */}
           {step === 0 && (
             <div className="flex flex-col items-center text-center">
-              <span className="mb-6 inline-block animate-float text-6xl">💌</span>
+              <span className="mb-6 inline-block animate-float text-6xl">🤍</span>
               <p
                 className="mb-4 animate-fade-up font-hand text-3xl text-primary opacity-0"
                 style={{ animationDelay: '0.1s' }}
@@ -196,7 +196,7 @@ const Index = () => {
           {/* Step 3 — Финал */}
           {step === 3 && (
             <div className="flex animate-scale-in flex-col items-center text-center">
-              <span className="mb-6 inline-block animate-heartbeat text-7xl">💞</span>
+              <span className="mb-6 inline-block animate-heartbeat text-7xl">🤍</span>
               <p className="mb-3 font-hand text-4xl text-primary">Это свидание!</p>
               <h2 className="mb-8 font-serif text-5xl font-medium leading-tight text-foreground">
                 Я буду считать<br />каждую минуту
