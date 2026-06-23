@@ -64,6 +64,7 @@ const FloatingHearts = () => {
 
 const Index = () => {
   const [step, setStep] = useState(0);
+  const [confirmed, setConfirmed] = useState(false);
   const [date, setDate] = useState<Date | undefined>(undefined);
   const [time, setTime] = useState<string | null>(null);
 
@@ -102,18 +103,41 @@ const Index = () => {
               >
                 Я очень хочу провести с тобой время. Позволишь пригласить тебя на прогулку?
               </p>
-              <button
-                onClick={next}
-                className="group animate-fade-up rounded-full bg-primary px-10 py-4 font-serif text-xl text-primary-foreground opacity-0 soft-shadow transition-all duration-300 hover:scale-105 hover:brightness-105"
-                style={{ animationDelay: '0.7s' }}
-              >
-                Конечно, открой
-                <Icon
-                  name="Heart"
-                  className="ml-2 inline-block transition-transform group-hover:scale-125"
-                  size={20}
-                />
-              </button>
+
+              {!confirmed ? (
+                <div
+                  className="flex animate-fade-up gap-4 opacity-0"
+                  style={{ animationDelay: '0.7s' }}
+                >
+                  <button
+                    onClick={() => setConfirmed(true)}
+                    className="group rounded-full bg-primary px-10 py-4 font-serif text-xl text-primary-foreground soft-shadow transition-all duration-300 hover:scale-105 hover:brightness-105"
+                  >
+                    Да 🤍
+                  </button>
+                  <button
+                    onClick={() => {}}
+                    className="rounded-full border-2 border-border bg-card px-10 py-4 font-serif text-xl text-muted-foreground transition-all duration-300 hover:scale-105 hover:border-primary"
+                  >
+                    Нет
+                  </button>
+                </div>
+              ) : (
+                <div className="flex animate-scale-in flex-col items-center gap-6">
+                  <p className="font-hand text-3xl text-primary">Ты серьёзно согласна? 🥺</p>
+                  <button
+                    onClick={next}
+                    className="group rounded-full bg-primary px-10 py-4 font-serif text-xl text-primary-foreground soft-shadow transition-all duration-300 hover:scale-105 hover:brightness-105"
+                  >
+                    Да, серьёзно!
+                    <Icon
+                      name="Sparkles"
+                      className="ml-2 inline-block transition-transform group-hover:scale-125"
+                      size={20}
+                    />
+                  </button>
+                </div>
+              )}
             </div>
           )}
 
