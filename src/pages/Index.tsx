@@ -3,7 +3,28 @@ import Icon from '@/components/ui/icon';
 import { Calendar } from '@/components/ui/calendar';
 import { ru } from 'date-fns/locale';
 
-const TIMES = ['Утром · 10:00', 'Днём · 14:00', 'Вечером · 18:00', 'На закате · 20:30'];
+const TIME_GROUPS = [
+  {
+    label: 'Утро',
+    emoji: '🌅',
+    slots: ['08:00', '09:00', '10:00', '11:00'],
+  },
+  {
+    label: 'День',
+    emoji: '☀️',
+    slots: ['12:00', '13:00', '14:00', '15:00', '16:00'],
+  },
+  {
+    label: 'Вечер',
+    emoji: '🌆',
+    slots: ['17:00', '18:00', '19:00', '20:00'],
+  },
+  {
+    label: 'Закат и ночь',
+    emoji: '🌙',
+    slots: ['20:30', '21:00', '22:00', '23:00'],
+  },
+];
 
 const FloatingHearts = () => {
   const hearts = useMemo(
@@ -133,19 +154,32 @@ const Index = () => {
               <h2 className="mb-8 font-serif text-4xl font-medium text-foreground">
                 В какое время удобно?
               </h2>
-              <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2">
-                {TIMES.map((t) => (
-                  <button
-                    key={t}
-                    onClick={() => setTime(t)}
-                    className={`rounded-2xl border-2 px-6 py-5 font-serif text-xl transition-all duration-300 hover:scale-[1.03] ${
-                      time === t
-                        ? 'border-primary bg-primary text-primary-foreground soft-shadow'
-                        : 'border-border bg-card text-foreground hover:border-primary'
-                    }`}
-                  >
-                    {t}
-                  </button>
+              <div className="flex max-h-[55vh] w-full flex-col gap-6 overflow-y-auto rounded-3xl bg-card/60 p-5 soft-shadow">
+                {TIME_GROUPS.map((group) => (
+                  <div key={group.label}>
+                    <p className="mb-3 flex items-center gap-2 font-hand text-2xl text-primary">
+                      <span className="text-xl">{group.emoji}</span>
+                      {group.label}
+                    </p>
+                    <div className="grid grid-cols-3 gap-3 sm:grid-cols-4">
+                      {group.slots.map((slot) => {
+                        const value = `${group.label} · ${slot}`;
+                        return (
+                          <button
+                            key={slot}
+                            onClick={() => setTime(value)}
+                            className={`rounded-2xl border-2 px-3 py-3 font-serif text-lg transition-all duration-300 hover:scale-[1.05] ${
+                              time === value
+                                ? 'border-primary bg-primary text-primary-foreground shadow-md'
+                                : 'border-border bg-card text-foreground hover:border-primary'
+                            }`}
+                          >
+                            {slot}
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
                 ))}
               </div>
               <button
