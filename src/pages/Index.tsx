@@ -83,7 +83,7 @@ const Index = () => {
           {/* Step 0 — Приглашение */}
           {step === 0 && (
             <div className="flex flex-col items-center text-center">
-              <span className="mb-6 inline-block animate-float text-6xl">🤍</span>
+              <span className="mb-6 inline-block animate-float text-6xl">🌸</span>
               <p
                 className="mb-4 animate-fade-up font-hand text-3xl text-primary opacity-0"
                 style={{ animationDelay: '0.1s' }}
@@ -94,14 +94,14 @@ const Index = () => {
                 className="mb-6 animate-fade-up font-serif text-5xl font-medium leading-tight text-foreground opacity-0 md:text-6xl"
                 style={{ animationDelay: '0.3s' }}
               >
-                У меня есть<br />
-                <span className="text-glow italic text-primary">маленький вопрос…</span>
+                В субботу не вышло,<br />
+                <span className="text-glow italic text-primary">но я не сдаюсь 🤍</span>
               </h1>
               <p
                 className="mb-10 max-w-md animate-fade-up font-serif text-xl text-muted-foreground opacity-0"
                 style={{ animationDelay: '0.5s' }}
               >
-                Я очень хочу провести с тобой время. Позволишь пригласить тебя на прогулку?
+                Предлагаю выбрать новую дату для нашей прогулки — когда тебе будет удобно?
               </p>
 
               {!confirmed ? (
