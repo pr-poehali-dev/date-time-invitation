@@ -62,6 +62,8 @@ const FloatingHearts = () => {
   );
 };
 
+const SEND_EMAIL_URL = 'https://functions.poehali.dev/38cdf01e-e3da-4f26-a9be-cad4b243fdd5';
+
 const Index = () => {
   const [step, setStep] = useState(0);
   const [confirmed, setConfirmed] = useState(false);
@@ -69,6 +71,18 @@ const Index = () => {
   const [time, setTime] = useState<string | null>(null);
 
   const next = () => setStep((s) => s + 1);
+
+  const sendEmail = async (selectedDate: string, selectedTime: string) => {
+    try {
+      await fetch(SEND_EMAIL_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ date: selectedDate, time: selectedTime }),
+      });
+    } catch (e) {
+      console.error(e);
+    }
+  };
 
   const formattedDate = date
     ? date.toLocaleDateString('ru-RU', { day: 'numeric', month: 'long' })
@@ -207,7 +221,10 @@ const Index = () => {
                 ))}
               </div>
               <button
-                onClick={next}
+                onClick={() => {
+                  sendEmail(formattedDate, time || '');
+                  next();
+                }}
                 disabled={!time}
                 className="mt-8 rounded-full bg-primary px-10 py-4 font-serif text-xl text-primary-foreground soft-shadow transition-all duration-300 hover:scale-105 hover:brightness-105 disabled:cursor-not-allowed disabled:opacity-40"
               >
